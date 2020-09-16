@@ -13,11 +13,15 @@ namespace FriendsZone
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            routes.MapRoute("Account", "{userName}", new { Controller = "Account", action = "UserName" });
+
+            routes.MapRoute("CreateAccount", "Account/CreateAccount", new { Controller = "Account", action = "CreateAccount" });
+            routes.MapRoute("Default", "", new { Controller = "Account", action = "Index" });
+            //routes.MapRoute(
+            //name: "Default",
+            //url: "{controller}/{action}/{id}",
+            //defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
         }
     }
 }
